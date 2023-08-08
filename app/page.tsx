@@ -3,7 +3,7 @@
 import { Dialog } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 
 export default function Example() {
   const [open, setOpen] = useState(false);
@@ -45,16 +45,19 @@ export default function Example() {
                     as={motion.div}
                     variants={{
                       closed: {
-                        opacity: 0,
-                        scale: 0.9,
+                        opacity: "var(--opacity-from)",
+                        scale: "var(--scale-from, 1)",
+                        y: "var(--y-from, 0px)",
                       },
                       open: {
-                        opacity: 1,
-                        scale: 1,
+                        opacity: "var(--opacity-to)",
+                        scale: "var(--scale-to, 1)",
+                        y: "var(--y-to, 0px)",
                       },
                     }}
-                    className="
-                      relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6
+                    className="relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6
+                      max-sm:[--y-from:16px] sm:[--scale-from:80%] [--opacity-from:0%]
+                      max-sm:[--y-to:0px] sm:[--scale-to:100%] [--opacity-to:100%]
                     "
                   >
                     <div className="sm:flex sm:items-start">
