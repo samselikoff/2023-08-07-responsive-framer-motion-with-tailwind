@@ -45,20 +45,16 @@ export default function Example() {
                     as={motion.div}
                     variants={{
                       closed: {
-                        y: "var(--y-closed, 0)",
-                        opacity: "var(--opacity-closed)",
-                        scale: "var(--scale-closed, 1)",
+                        opacity: 0,
+                        scale: 0.9,
                       },
                       open: {
-                        y: "var(--y-open, 0)",
-                        opacity: "var(--opacity-open)",
-                        scale: "var(--scale-open, 1)",
+                        opacity: 1,
+                        scale: 1,
                       },
                     }}
                     className="
                       relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6
-                      max-sm:[--y-closed:16px] [--opacity-closed:0%] sm:[--scale-closed:90%]
-                      max-sm:[--y-open:0px] [--opacity-open:100%] sm:[--scale-open:100%]
                     "
                   >
                     <div className="sm:flex sm:items-start">
